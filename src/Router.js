@@ -6,17 +6,20 @@ import Bitcoin from './components/Bitcoin';
 import Ethereum from './components/Ethereum';
 import Ripple from './components/Ripple';
 import Litecoin from './components/Litecoin';
+import CoinProfile from './components/CoinProfile';
+import Header from './components/common/Header'
+
 import { Actions } from 'react-native-router-flux';
 
 
 const RouterComponent = () => {
     return (
         <Router>
-            <Scene key="root" hideNavBar>
+            <Scene key="root" navBar={Header} >
                 <Scene key="auth">
                     <Scene key="login" component={LoginForm} title="Login" />
                 </Scene>
-
+                <Scene key="profile" component={CoinProfile} />
                 <Scene key="main" initial>
                     <Scene
                         // rightTitle="Add"

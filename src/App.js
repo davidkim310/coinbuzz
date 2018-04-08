@@ -13,7 +13,7 @@ import CryptoCard from './components/common/CryptoCard';
 
 class App extends Component {
     // Will added state
-    state = { cryptos:[] };
+    // state = { cryptos:[] };
 
     componentWillMount() {
         const config = {
@@ -28,33 +28,33 @@ class App extends Component {
         firebase.initializeApp(config);
 
           //Will added
-        axios.get('https://min-api.cryptocompare.com/data/top/volumes?tsym=BTC')
-        .then(response => this.setState({cryptos: response.data.Data}));
+        // axios.get('https://min-api.cryptocompare.com/data/top/volumes?tsym=BTC')
+        // .then(response => this.setState({cryptos: response.data.Data}));
     }
 
         // Will added
-    renderCrypto() {
-        console.log(this.state.cryptos);
+    // renderCrypto() {
+    //     console.log(this.state.cryptos);
 
-        return this.state.cryptos.map(crypto=>
-        <CryptoCard key={crypto.ID} crypto={crypto}/>
-        );
-    }
+    //     return this.state.cryptos.map(crypto=>
+    //     <CryptoCard key={crypto.ID} crypto={crypto}/>
+    //     );
+    // }
 
     render() {
         const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
         
         return (
-            // <Provider store={store}>
-            //     <Router />
-            // </Provider>
+            <Provider store={store}>
+                <Router />
+            </Provider>
 
             //Will added below
             
-            <View>
-                <Header/>
-                {this.renderCrypto()}
-            </View>
+            // <View>
+            //     <Header/>
+            //     {this.renderCrypto()}
+            // </View>
         );
     }
 }
